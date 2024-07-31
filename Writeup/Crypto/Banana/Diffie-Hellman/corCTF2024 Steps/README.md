@@ -1,5 +1,5 @@
 # Introduction
-Author: [Gifelaga](https://github.com/Gifelaga) \
+Author: [Gifelaga](https://github.com/Gifelaga)\
 Name: crypto/steps\
 Solves/Points: 99 solves / 129 points\
 Description: Alice and Bob have taken steps to communicate securely.
@@ -115,26 +115,31 @@ def calculate(n: int) -> Pair:
 The function `apply(x, y)` is easy to reverse, which a good cryptosystem should not be! (You cannot reverse AES, RSA or a good DH).
 
 In mathematical terms this is the calculation:
+
 $$ \begin{cases}
-z_0 = x_0 \cdot y_1 + x_1 \cdot y_0 - x_0 \cdot y_0 \space (mod \space p)\\
-z_1 = x_0 \cdot y_0 + x_1 \cdot y_1 \space (mod \space p)
+z_0 \equiv x_0 \cdot y_1 + x_1 \cdot y_0 - x_0 \cdot y_0 \space (mod \space p) \\
+z_1 \equiv x_0 \cdot y_0 + x_1 \cdot y_1 \space (mod \space p)
 \end{cases} $$
 
 Where ($z_0$, $z_1$) is the output of the function `apply(x, y)` (also known as $A$ OR $B$), therefore we can solve the system in the variables ($y_0$, $y_1$), the secret key (obviously we also know the value of $g$ which is public).
 
 So, knowing that $x_0=g_0, \space x_1=g_1$ and $z_0=A_0, \space z_1=A_1$ we are going to recover $y_0=calculate(a)_0, \space y_1=calculate(a)_1$ with some simple algebric steps.\
 From the system above, we get the following relations:
-$$ \begin{cases}
-y_1 = [z_0 - (x_1-x_0)*y_0] * x_0^{-1} \space (mod \space p) \\
-y_1 = (z_1 - x_0*y_0) * x_1^{-1} \space (mod \space p)
-\end{cases} $$
 
 $$
-[z_0 - (x_1-x_0)*y_0] * x_0^{-1} = (z_1 - x_0*y_0) * x_1^{-1} \space (mod \space p)\\
-[z_0 - (x_1-x_0)*y_0] * x_1 = (z_1 - x_0*y_0) * x_0 \space (mod \space p) =>\\
-z_0*x_1 - (x_1-x_0)*y_0*x_1 = z_1*x_0 - x_0^2 *y0 \space (mod \space p) =>\\
-y_0 = (z_1*x_0 - z_0*x_1) * (x_0^2 + x_0*x_1 - x_1^2)^{-1} \space (mod \space p)
+\begin{cases}
+y_1 \equiv [z_0 - (x_1-x_0) \cdot y_0] \cdot x_0^{-1} \space (mod \space p) \\
+y_1 \equiv (z_1 - x_0 \cdot y_0) \cdot x_1^{-1} \space (mod \space p)
+\end{cases}
 $$
+
+$$[z_0 - (x_1-x_0) \cdot y_0] \cdot x_0^{-1} \equiv (z_1 - x_0 \cdot y_0) \cdot x_1^{-1} \space (mod \space p)$$
+
+$$[z_0 - (x_1-x_0) \cdot y_0] \cdot x_1 \equiv (z_1 - x_0 \cdot y_0) \cdot x_0 \space (mod \space p) =>$$
+
+$$z_0 \cdot x_1 - (x_1-x_0) \cdot y_0 \cdot x_1 \equiv z_1 \cdot x_0 - x_0^2 \cdot y_0 \space (mod \space p) =>$$
+
+$$y_0 \equiv (z_1 \cdot x_0 - z_0 \cdot x_1) \cdot (x_0^2 + x_0 \cdot x_1 - x_1^2)^{-1} \space (mod \space p)$$
 
 Now we can just take $K=apply(B, calculated(a)) => pad = sha512(str(K).encode()).digest()$ and so the flag:\
 $ct \oplus pad=flag \oplus pad \oplus pad=flag$
@@ -191,5 +196,3 @@ ct = b'\xbaH\xca[V\xdf\xbb0d2jN"\x9d$e\xec\xe0M\x00\xdb\xf0\x8f\x99f\xc5\n\x8a\x
 
 print(xor(ct,pad)) # corctf{w4it_i7's_4ll_f1b0n4cci?}
 ```
-
-# External Refs
