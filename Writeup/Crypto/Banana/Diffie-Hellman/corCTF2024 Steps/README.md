@@ -1,5 +1,5 @@
 # Introduction
-Author: [Gifelaga](https://github.com/Gifelaga)
+Author: [Gifelaga](https://github.com/Gifelaga) \
 Name: crypto/steps\
 Solves/Points: 99 solves / 129 points\
 Description: Alice and Bob have taken steps to communicate securely.
