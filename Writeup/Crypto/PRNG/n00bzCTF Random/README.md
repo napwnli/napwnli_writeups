@@ -99,7 +99,7 @@ To get a $50\%$ probability of getting a sorted string in $70$ shuffles, we woul
 
 However, if we assume $n$ to be $10$ then we can calculate how many inputs we would need to get a $50\%$ probability of getting the flag.\
 We can caculate this by taking the probability of not getting the flag in $70$ shuffles and calculating after how many reruns it would be less than $0.5$. Which is $(1 - \frac{70}{10!})^x < 0.5$ where $x$ is the number of reruns.\
-This is easily solved through a logarithm: $x > \frac{\log(0.5)}{\log(1 - \frac{70}{10!})} \approx 35932$. In terms of time, given the timeout in the sort function, this woukd take $35932 \times 70 \times 0.5 = 1257620$ seconds which is approximately $14.5$ days.
+This is easily solved through a logarithm: $x > \frac{\log(0.5)}{\log(1 - \frac{70}{10!})} \approx 35932$. In terms of time, given the timeout in the sort function, this would take $35932 \times 70 \times 0.5 = 1257620$ seconds which is approximately $14.5$ days.
 
 So... we won't get the flag?\
 Well, if the bogosort algorithm was really random, we would not ever got the flag.
