@@ -88,7 +88,7 @@ Bogosort is famous to not be really efficient when we talk about sorting: it has
 Let's reanalyze the problem in mathematical terms:
 
 In each shuffle, there are $n!$ possible permutations of the string, where $n$ is the length of the string.\
-How many favorable outcomes do we have? Which is the number of permutations that result in a sorted string. Since the string is composed of unique characters there is only one permutation wich is ordered \
+How many favorable outcomes do we have? Which is the number of permutations that result in a sorted string. Since the string is composed of unique characters there is only one permutation which is ordered \
 So the number of favorable outcomes is $1$.
 
 And since we have a maximum of $70$ random shuffles to get that string, the probability of getting a sorted string of lenght $n$ in exactly $70$ shuffles is $\frac{70}{n!}$.
