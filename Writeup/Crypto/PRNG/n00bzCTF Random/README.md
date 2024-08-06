@@ -98,7 +98,7 @@ How can we minimise it? Putting $n=10$ which is the minimum, in this case the pr
 To get a $50\%$ probability of getting a sorted string, we would need $0.5 = \frac{70}{n!} \Rightarrow n! = 140 \Rightarrow n = 5.1$ which is not possible.
 
 So... we won't get the flag?\
-Well, if the bogosort algorithm was really random, we would not ever got the flag.
+Well, if the bogosort algorithm was really random, we would not ever get the flag.
 
 Although, we're going to transform this **ENORMOUS** time complexity to the best case which is $O(n)$ (an array sorted at the first shuffle), how?
 
