@@ -1,5 +1,8 @@
 # Introduction
 
+Author: [Gifelaga](https://github.com/Gifelaga)\
+Name: crypto/Random\
+Solves/Points: 177 solves / 451 points
 > Description: I hid my password behind an impressive sorting machine. The machine is very luck based, or is it?!?!?!?
 
 This is the challenge source code:
